@@ -22,7 +22,7 @@
     <main class="flex flex-col items-center px-6 mt-10 space-y-6">
         <form id="loginForm" class="w-full max-w-sm flex flex-col space-y-4">
             <div class="entryarea">
-                <input type="text" name="username" required />
+                <input type="text" name="name" required />
                 <div class="lableLine">Số điện thoại hoặc email</div>
             </div>
             <div class="entryarea">
@@ -61,6 +61,7 @@
         </div>
     </footer>
 </body>
+
 <script>
     document.getElementById('loginForm').addEventListener('submit', function (e) {
         e.preventDefault(); // Ngăn reload trang
@@ -69,12 +70,12 @@
 
         // Tạo JSON từ các trường input
         const data = {
-            username: form.username.value,
-            password: form.pass.value
+            name: form.name.value,
+            pass: form.pass.value
         };
         console.log(data)
 
-        fetch('https://160.22.121.222:8443/api/users', {
+        fetch('http://localhost:8080/api/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json' // Quan trọng!
@@ -91,7 +92,5 @@
             });
     });
 </script>
-
-
 
 </html>
